@@ -1,11 +1,40 @@
 :root {
     --card-bg-image: none;
+    --food: hsla(40, 100%, 50%, .1);
+    --drink: hsla(308, 100%, 50%, .1);
+    --comf: hsla(208, 100%, 50%, .1);
+    --fun: hsla(287, 100%, 50%, .1);
+    --sex: hsla(0, 100%, 50%, .1);
+    --black: rgba(0, 0, 0, 0.2);
 }
 
-.italic {
+.animate-pulse-highlight-staff {
+    border-bottom-color: rgba(229, 206, 255, 0.95) !important;
+    box-shadow: rgba(216, 180, 254, 0) 0px 0px 11.2975px 15.0633px !important;
+    border-left-color: rgba(229, 206, 255, 0.95) !important;
+    transform: scale(1.05) !important;
+    border-color: rgba(200, 152, 255, .95) !important;
+/*     border-top-color: rgba(229, 206, 255, 0.95) !important; */
+}
+.border-purple-600 {
+    border-color: rgb(165, 84, 239);
+}
+
+.bg-gray-900 {
+    --tw-bg-opacity: 1;
+    background-color: rgba(17, 24, 39, .21);
+}.border-gray-700 {
+    --tw-border-opacity: 0.1;
+}
+.bg-gray-700\/50 {
+    background-color: rgba(81, 97, 124, .46);
+}
+
+/* .italic {
     font-style: normal;
-}.text-yellow-300\/80 {
-    color: hsla(308, 100%, 85%, .78);
+} */
+.text-yellow-300\/80 {
+    color: hsla(56, 100%, 85%, .78);
 }
 
 div[data-card-id^="traveler_"],
@@ -20,68 +49,57 @@ div[data-card-id^="girl_"] .w-40.h-64 {
     overflow: hidden;
 }
 
+div.fixed.inset-0.bg-black\/80.flex.items-center.justify-center.z-50.animate-fade-in:has(>div.bg-gray-800.rounded-lg.p-6.shadow-2xl.border-2.border-blue-500.max-w-2xl.w-full.relative>button.absolute.top-2.right-2.text-gray-400.hover\:text-white.text-3xl.font-bold.leading-none.p-1[aria-label="Close how to play"])
+{
+      display: none;
+      opacity: 0;
+}
+
+/* Gradient layer (full coverage) */
+/* Gradient layer (full coverage) */
 div[data-card-id^="traveler_"] .w-40.h-64::before,
 div[data-card-id^="girl_"] .w-40.h-64::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    145deg,
+    var(--grad-1, transparent) 0%,
+    var(--grad-2, transparent)
+      calc(100% * (1 - (0.3 * var(--mid, 1)))),
+    var(--grad-3, var(--grad-2, transparent)) 100%
+  );
+  opacity: 0.2;
+  z-index: 0;
+}
+
+/* Image layer (uses top/height offsets) */
+div[data-card-id^="traveler_"] .w-40.h-64::after,
+div[data-card-id^="girl_"] .w-40.h-64::after {
     content: "";
     position: absolute;
-    top: var(--top, 12%);          /* space from top */
-    left: 0%;
+    top: var(--top, 12%);
+    left: 0;
     width: 100%;
-    height: var(--height, 95%);
+    height: var(--height, 90%);
     background-image: var(--card-bg-image);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.35;
-    z-index: 0;
+    opacity: var(--opacity, 0.15);
+    z-index: 1;
+    scale: 0.95;
 }
 
+/* Content above both layers */
 div[data-card-id^="traveler_"] .w-40.h-64 > *,
 div[data-card-id^="girl_"] .w-40.h-64 > * {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
-
-.bg-gray-700\/50 {
-/*     background-color: rgba(81, 97, 124, .62); */
-}
-
-div[data-card-id^="girl_waitress"] {--card-bg-image: url("https://i.postimg.cc/G3SwBWnM/13.png")}
-div[data-card-id^="girl_prostitute"] {--card-bg-image: url("https://i.postimg.cc/sDQF5TVV/68.png")}
-div[data-card-id^="girl_souteneur"] {--card-bg-image: url("https://i.postimg.cc/sDQF5TVV/68.png")}
-div[data-card-id^="girl_sister"] {--card-bg-image: url("https://i.postimg.cc/c15yKpGQ/05.png")}
-div[data-card-id^="girl_farmgirl"] {--card-bg-image: url("https://i.postimg.cc/PfFsLgny/12.png")}
-
-div[data-card-id^="girl_hostess"] {--card-bg-image: url("https://i.postimg.cc/7PQ8CFrs/14.png")}
-div[data-card-id^="girl_cook"] {--card-bg-image: url("https://i.postimg.cc/jdwVyMRB/24.png")}
-div[data-card-id^="girl_huntress"] {--card-bg-image: url("https://i.postimg.cc/tCZ0FBXy/29.png")}
-
-div[data-card-id^="girl_beermaid"] {--card-bg-image: url("https://i.postimg.cc/dQSP7bcp/17.png")}
-div[data-card-id^="girl_shaman"] {--card-bg-image: url("https://i.postimg.cc/RCb53kxH/04.png")}
-div[data-card-id^="girl_juggler"] {--card-bg-image: url("https://i.postimg.cc/SQtFXBb7/08.png")}
-
-div[data-card-id^="girl_dancer"] {--card-bg-image: url("https://i.postimg.cc/G3SwBWnj/09.png")}
-div[data-card-id^="girl_priestess"] {--card-bg-image: url("https://i.postimg.cc/c15yKpGQ/05.png")}
-div[data-card-id^="girl_angel"] {--card-bg-image: url("https://i.postimg.cc/KcsSK6hT/01.png")}
-div[data-card-id^="girl_confessor"] {--card-bg-image: url("https://i.postimg.cc/c15yKpGQ/05.png")}
-div[data-card-id^="girl_musician"] {--card-bg-image: url("https://i.postimg.cc/fWgn3GQ7/07.png")}
-div[data-card-id^="girl_horsewoman"] {--card-bg-image: url("https://i.postimg.cc/HWPDJq13/11.png")}
-div[data-card-id^="girl_rider"] {--card-bg-image: url("https://i.postimg.cc/3rb5ysQX/06.png")}
-div[data-card-id^="girl_actor"] {--card-bg-image: url("https://i.postimg.cc/G3SwBWnj/09.png")}
-div[data-card-id^="girl_wardress"] {--card-bg-image: url("https://i.postimg.cc/c4gqfFd2/23.png")}
-
-div[data-card-id^="girl_baths"] {--card-bg-image: url("https://i.postimg.cc/SQtFXBbr/10.png")}
-div[data-card-id^="girl_gardener"] {--card-bg-image: url("https://i.postimg.cc/WbFR05sK/22.png")}
-div[data-card-id^="girl_housemaid"] {--card-bg-image: url("https://i.postimg.cc/zDPZLsYP/16.png")}
-div[data-card-id^="girl_sommelier"] {--card-bg-image: url("https://i.postimg.cc/652sCM9t/30.png")}
-div[data-card-id^="girl_courtesan"] {--card-bg-image: url("https://i.postimg.cc/652sCM9t/30.png")}
-div[data-card-id^="girl_guard"] {--card-bg-image: url("https://i.postimg.cc/59kdHhWK/15.png")}
-
-div[data-card-id^="girl_druidess"] {--card-bg-image: url("https://i.postimg.cc/gcBFwCPF/20.png")}
-div[data-card-id^="girl_satyr"] {--card-bg-image: url("https://i.postimg.cc/gcBFwCPF/20.png")}
-div[data-card-id^="girl_valkyrie"] {--card-bg-image: url("https://i.postimg.cc/7YGvSKx8/26.png")}
-div[data-card-id^="girl_bouncer"] {--card-bg-image: url("https://i.postimg.cc/c4gqfFd2/23.png")}
-div[data-card-id^="girl_succubus"] {--card-bg-image: url("https://i.postimg.cc/vTKppVvB/03.png")}
 
 
 div[data-card-id^="girl_actor"] {--card-bg-image: url("https://raw.githubusercontent.com/fareeyasnow10/lt-characters/main/img/actress.png")}
@@ -95,8 +113,7 @@ div[data-card-id^="girl_cook"] {--card-bg-image: url("https://raw.githubusercont
 div[data-card-id^="girl_courtesan"] {--card-bg-image: url("https://raw.githubusercontent.com/fareeyasnow10/lt-characters/main/img/courtesan.png")}
 div[data-card-id^="girl_dancer"] {--card-bg-image: url("https://raw.githubusercontent.com/fareeyasnow10/lt-characters/main/img/dancer.png")}
 div[data-card-id^="girl_druidess"] {--card-bg-image: url("https://raw.githubusercontent.com/fareeyasnow10/lt-characters/main/img/druidess.png")}
-div[data-card-id^="girl_farmgirl"] {--card-bg-image: url("https://raw.githubusercontent.com/fareeyasnow10/lt-characters/main/img/farmer_alt.png");
---height:90%; --top:15%}
+div[data-card-id^="girl_farmgirl"] {--card-bg-image: url("https://raw.githubusercontent.com/fareeyasnow10/lt-characters/main/img/farmgirl_alt_1.png")}
 
 div[data-card-id^="girl_gardener"] {--card-bg-image: url("https://raw.githubusercontent.com/fareeyasnow10/lt-characters/main/img/gardener.png")}
 div[data-card-id^="girl_guard"] {--card-bg-image: url("https://raw.githubusercontent.com/fareeyasnow10/lt-characters/main/img/guard.png")}
@@ -113,19 +130,122 @@ div[data-card-id^="girl_prostitute"] {--card-bg-image: url("https://raw.githubus
 div[data-card-id^="girl_rider"] {--card-bg-image: url("https://raw.githubusercontent.com/fareeyasnow10/lt-characters/main/img/rider.png")}
 div[data-card-id^="girl_satyr"] {--card-bg-image: url("https://raw.githubusercontent.com/fareeyasnow10/lt-characters/main/img/satyr.png")}
 div[data-card-id^="girl_shaman"] {--card-bg-image: url("https://raw.githubusercontent.com/fareeyasnow10/lt-characters/main/img/shaman.png")}
-div[data-card-id^="girl_sister"] {--card-bg-image: url("https://raw.githubusercontent.com/fareeyasnow10/lt-characters/main/img/sister.png");
---height: 105%; --top:7%}
+div[data-card-id^="girl_sister"] {--card-bg-image: url("https://raw.githubusercontent.com/fareeyasnow10/lt-characters/main/img/sister.png")}
 div[data-card-id^="girl_sommelier"] {--card-bg-image: url("https://raw.githubusercontent.com/fareeyasnow10/lt-characters/main/img/sommelier.png")}
 div[data-card-id^="girl_souteneur"] {--card-bg-image: url("https://raw.githubusercontent.com/fareeyasnow10/lt-characters/main/img/souteneur.png")}
 div[data-card-id^="girl_succubus"] {--card-bg-image: url("https://raw.githubusercontent.com/fareeyasnow10/lt-characters/main/img/succubus.png")}
 div[data-card-id^="girl_valkyrie"] {--card-bg-image: url("https://raw.githubusercontent.com/fareeyasnow10/lt-characters/main/img/valkyrie.png")}
-div[data-card-id^="girl_waitress"] {--card-bg-image: url("https://raw.githubusercontent.com/fareeyasnow10/lt-characters/main/img/waitress_alt_1.png");
---height: 100%; --top:11%}
+div[data-card-id^="girl_waitress"] {--card-bg-image: url("https://raw.githubusercontent.com/fareeyasnow10/lt-characters/main/img/waitress_alt_1.png")}
 div[data-card-id^="girl_wardress"] {--card-bg-image: url("https://raw.githubusercontent.com/fareeyasnow10/lt-characters/main/img/wardress.png")}
 
 
 
+div[data-card-id^="girl_actor"]     {}
+div[data-card-id^="girl_angel"]     {}
+div[data-card-id^="girl_baths"]     {}
+div[data-card-id^="girl_beermaid"]  {}
+div[data-card-id^="girl_bouncer"]   {}
+div[data-card-id^="girl_cat"]       {}
+div[data-card-id^="girl_confessor"] {--grad-1: var(--comf); --grad-2: var(--sex); --mid: 0}
+div[data-card-id^="girl_cook"]      {--grad-1: var(--food); --grad-2: var(--drink); --mid: 0}
+div[data-card-id^="girl_courtesan"] {}
+div[data-card-id^="girl_dancer"]    {}
+div[data-card-id^="girl_druidess"]  {}
+div[data-card-id^="girl_farmgirl"]  {--grad-1: var(--food); --grad-2: var(--food); --grad-3: var(--drink)}
 
+div[data-card-id^="girl_gardener"]  {}
+div[data-card-id^="girl_guard"]     {--grad-1: var(--comf); --grad-2: var(--comf); --mid: 0}
+div[data-card-id^="girl_horsewoman"]{}
+div[data-card-id^="girl_hostess"]   {}
+div[data-card-id^="girl_housemaid"] {}
+div[data-card-id^="girl_huntress"]  {}
+div[data-card-id^="girl_juggler"]   {}
+div[data-card-id^="girl_musician"]  {}
+div[data-card-id^="girl_ogre"]      {}
+
+div[data-card-id^="girl_priestess"] {}
+div[data-card-id^="girl_prostitute"]{--grad-1: var(--drink); --grad-2: var(--sex); --grad-3: var(--sex)}
+div[data-card-id^="girl_rider"]     {}
+div[data-card-id^="girl_satyr"]     {}
+div[data-card-id^="girl_shaman"]    {}
+div[data-card-id^="girl_sister"]    {--grad-1: var(--comf); --grad-2: var(--sex); --mid: 0}
+div[data-card-id^="girl_sommelier"] {}
+div[data-card-id^="girl_souteneur"] {}
+div[data-card-id^="girl_succubus"]  {}
+div[data-card-id^="girl_valkyrie"]  {}
+div[data-card-id^="girl_waitress"]  {--grad-1: var(--food); --grad-2: var(--drink); --grad-3: var(--sex)}
+div[data-card-id^="girl_wardress"]  {}
+
+
+
+
+/* div[data-card-id^="girl_farmgirl"] {--height:90%; --top:15%}
+div[data-card-id^="girl_sister"] {--height: 105%; --top:7%}
+div[data-card-id^="girl_waitress"] {--height: 100%; --top:11%} */
+
+
+/* div[data-card-id^="girl_actor"] {--card-bg-image: url("https://i.postimg.cc/G3SwBWnj/09.png")}
+div[data-card-id^="girl_actor"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_angel"] {--card-bg-image: url("https://i.postimg.cc/KcsSK6hT/01.png")}
+div[data-card-id^="girl_angel"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_baths"] {--card-bg-image: url("https://i.postimg.cc/SQtFXBbr/10.png")}
+div[data-card-id^="girl_baths"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_beermaid"] {--card-bg-image: url("https://i.postimg.cc/dQSP7bcp/17.png")}
+div[data-card-id^="girl_beermaid"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_bouncer"] {--card-bg-image: url("https://i.postimg.cc/c4gqfFd2/23.png")}
+div[data-card-id^="girl_bouncer"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_confessor"] {--card-bg-image: url("https://i.postimg.cc/c15yKpGQ/05.png")}
+div[data-card-id^="girl_confessor"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_cook"] {--card-bg-image: url("https://i.postimg.cc/jdwVyMRB/24.png")}
+div[data-card-id^="girl_cook"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_courtesan"] {--card-bg-image: url("https://i.postimg.cc/652sCM9t/30.png")}
+div[data-card-id^="girl_courtesan"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_dancer"] {--card-bg-image: url("https://i.postimg.cc/G3SwBWnj/09.png")}
+div[data-card-id^="girl_dancer"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_druidess"] {--card-bg-image: url("https://i.postimg.cc/gcBFwCPF/20.png")}
+div[data-card-id^="girl_druidess"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_farmgirl"] {--card-bg-image: url("https://i.postimg.cc/PfFsLgny/12.png")}
+div[data-card-id^="girl_farmgirl"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_gardener"] {--card-bg-image: url("https://i.postimg.cc/WbFR05sK/22.png")}
+div[data-card-id^="girl_gardener"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_guard"] {--card-bg-image: url("https://i.postimg.cc/59kdHhWK/15.png")}
+div[data-card-id^="girl_guard"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_horsewoman"] {--card-bg-image: url("https://i.postimg.cc/HWPDJq13/11.png")}
+div[data-card-id^="girl_horsewoman"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_hostess"] {--card-bg-image: url("https://i.postimg.cc/7PQ8CFrs/14.png")}
+div[data-card-id^="girl_hostess"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_housemaid"] {--card-bg-image: url("https://i.postimg.cc/zDPZLsYP/16.png")}
+div[data-card-id^="girl_housemaid"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_huntress"] {--card-bg-image: url("https://i.postimg.cc/tCZ0FBXy/29.png")}
+div[data-card-id^="girl_huntress"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_juggler"] {--card-bg-image: url("https://i.postimg.cc/SQtFXBb7/08.png")}
+div[data-card-id^="girl_juggler"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_musician"] {--card-bg-image: url("https://i.postimg.cc/fWgn3GQ7/07.png")}
+div[data-card-id^="girl_musician"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_priestess"] {--card-bg-image: url("https://i.postimg.cc/c15yKpGQ/05.png")}
+div[data-card-id^="girl_priestess"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_prostitute"] {--card-bg-image: url("https://i.postimg.cc/sDQF5TVV/68.png")}
+div[data-card-id^="girl_prostitute"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_rider"] {--card-bg-image: url("https://i.postimg.cc/3rb5ysQX/06.png")}
+div[data-card-id^="girl_rider"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_satyr"] {--card-bg-image: url("https://i.postimg.cc/gcBFwCPF/20.png")}
+div[data-card-id^="girl_satyr"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_shaman"] {--card-bg-image: url("https://i.postimg.cc/RCb53kxH/04.png")}
+div[data-card-id^="girl_shaman"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_sister"] {--card-bg-image: url("https://i.postimg.cc/c15yKpGQ/05.png")}
+div[data-card-id^="girl_sister"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_sommelier"] {--card-bg-image: url("https://i.postimg.cc/652sCM9t/30.png")}
+div[data-card-id^="girl_sommelier"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_souteneur"] {--card-bg-image: url("https://i.postimg.cc/sDQF5TVV/68.png")}
+div[data-card-id^="girl_souteneur"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_succubus"] {--card-bg-image: url("https://i.postimg.cc/vTKppVvB/03.png")}
+div[data-card-id^="girl_succubus"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_valkyrie"] {--card-bg-image: url("https://i.postimg.cc/7YGvSKx8/26.png")}
+div[data-card-id^="girl_valkyrie"] {--height:125%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_waitress"] {--card-bg-image: url("https://i.postimg.cc/G3SwBWnM/13.png")}
+div[data-card-id^="girl_waitress"] {--height:145%; --top:5%; --opacity:0.25}
+div[data-card-id^="girl_wardress"] {--card-bg-image: url("https://i.postimg.cc/c4gqfFd2/23.png")}
+div[data-card-id^="girl_wardress"] {--height:125%; --top:5%; --opacity:0.25} */
 
 
 
